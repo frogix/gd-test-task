@@ -60,6 +60,7 @@ class EditWorkerForm extends React.Component {
 
 
   dateToHTMLString(date) {
+    if (date === null) return null;
     const yyyy = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
     const MM   = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
     const dd   = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
@@ -93,7 +94,7 @@ class EditWorkerForm extends React.Component {
     return (
       <form>
         <div className="form-group">
-          <label htmlFor="nameInput"> ФИО полностью </label>
+          <label htmlFor="nameInput"> ФИО </label>
           <input
             className="form-control"
             id="nameInput"
@@ -111,7 +112,7 @@ class EditWorkerForm extends React.Component {
             value={jobTitle}
             id="jobTitleSelect"
             name="jobTitle"
-            className="form-control"
+            className="custom-select form-control"
             onChange={handleInputChange}
             disabled={!isEditable}
           >
@@ -131,6 +132,8 @@ class EditWorkerForm extends React.Component {
             id="bornDateInput"
             onChange={handleInputChange}
             type="date"
+            max={dateToHTMLString(new Date())}
+            min={dateToHTMLString(new Date(1900, 0, 1))}
             value={dateToHTMLString(bornDate)}
             disabled={!isEditable}
           />  
@@ -177,10 +180,10 @@ class EditWorkerForm extends React.Component {
           <label className="" htmlFor="isFiredInput">Уволен</label>
         </div>
         <div className="form-group">
-          <label htmlFor="bornDateInput">Коллеги</label>
+          <label htmlFor="colleaguesIDsSelect">Коллеги</label>
           <select
             value={colleaguesIDs}
-            id="jobTitleSelect"
+            id="colleaguesIDsSelect"
             name="colleaguesIDs"
             className="form-control"
             onChange={handleInputChange}

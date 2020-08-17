@@ -2,11 +2,12 @@ import C from "./constants.js";
 
 function createWorker(state) {
   const newWorker = {
-    name: `Рабочий №${state.workers.length + 1}`,
-    jobTitle: state.jobTitles[0],
-    bornDate: new Date(),
-    sex: "Male",
-    isFired: false
+    name: "",
+    jobTitle: "",
+    bornDate: undefined,
+    sex: "",
+    isFired: "",
+    id: state.workers.length
   }
 
   return { ...state, workers: [...state.workers, newWorker], selectedWorkerIndex: state.workers.length};

@@ -21,6 +21,8 @@ class WorkersTable extends React.Component {
   };
 
   formatDate(date) {
+    if (date === undefined) return date;
+
     const dateTimeFormat = new Intl.DateTimeFormat("ru", {
       year: "numeric",
       month: "2-digit",
