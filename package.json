@@ -2,6 +2,7 @@
   "name": "green-data-test-task",
   "description": "Test task for GreenData",
   "version": "0.0.63",
+  "homepage": "https://frogix.github.io/gd-test-task",
   "dependencies": {
     "bootstrap": "^4.5.2",
     "react": "^16.13.1",
@@ -10,12 +11,15 @@
     "redux": "3.7.2"
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "react-scripts": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
