@@ -1,0 +1,12 @@
+.workers-table tbody tr {
+	cursor: pointer;
+}
+
+.workers-table tbody tr:hover {
+	background: #eaeaea;
+}
+
+.workers-table tr.is-active,
+.workers-table tr.is-active:hover {
+	background: #ddd;
+}
